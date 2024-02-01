@@ -73,3 +73,6 @@
 
 ## 機能の実装方針予定
 - Google Books APIを使用しての絵本情報の取得
+
+# 画面遷移図
+https://www.figma.com/file/Ow1HQQN2U8MWC5WrMddI8j/%E3%82%88%E3%82%93%E3%81%A0%EF%BC%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%80%80%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=whiteboard&node-id=0%3A1&t=rLKjs9WbTXXYnQ8Z-1
