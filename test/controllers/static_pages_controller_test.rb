@@ -2,12 +2,9 @@ require "test_helper"
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
-  def set_up
-    @base_title = "Yonda"
-  end
-  test "should get top" do
+  test "should get root" do
     get root_path
     assert_response :success
-    assert_select "title", "#{@base_title}"
+    assert_select "title", "Yonda"
   end
 end
