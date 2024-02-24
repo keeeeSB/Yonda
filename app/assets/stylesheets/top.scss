@@ -1,0 +1,11 @@
+.top-wrapper {
+  background-image: url("top.jpeg");
+  height: 600px;
+  position: relative;
+  background-size: cover;
+}
+.top-inner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
