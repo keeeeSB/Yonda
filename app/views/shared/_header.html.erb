@@ -8,7 +8,7 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><%= link_to "Yonda", "/", class: "nav-link px-2 text-white" %></li>
-          <li><%= link_to "ホーム", "#", class: "nav-link px-2 text-white" %></li>
+          <li><%= link_to "ホーム", home_path, class: "nav-link px-2 text-white" %></li>
           <li><%= link_to "よんだとは", about_path, class: "nav-link px-2 text-white" %></li>
         </ul>
 
@@ -17,7 +17,7 @@
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">新規登録</button>
+          <%= link_to "新規登録", signup_path, class: "btn btn-outline-light me-2" %>
           <button type="button" class="btn btn-warning">ログイン</button>
         </div>
       </div>
