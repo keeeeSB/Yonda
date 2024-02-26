@@ -1,6 +1,6 @@
 .top-wrapper {
   background-image: url("top.jpeg");
-  height: 600px;
+  height: calc(100vh - 134px);
   position: relative;
   background-size: cover;
 }
