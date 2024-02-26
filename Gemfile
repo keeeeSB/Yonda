@@ -21,6 +21,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem "web-console",         "4.2.0"
   gem "solargraph",          "0.50.0"
   gem "irb",                 "1.10.0"
