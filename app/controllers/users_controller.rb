@@ -20,6 +20,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def destroy
+  end
+
   private
 
   def user_params
