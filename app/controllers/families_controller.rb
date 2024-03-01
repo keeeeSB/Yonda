@@ -8,7 +8,7 @@ class FamiliesController < ApplicationController
     @family = Family.new(family_params)
     if @family.save
       flash[:success] = "家族情報の登録ができました"
-      redirect_to family_path(current_user)
+      redirect_to @family
     else
       render 'new', status: :unprocessable_entity
     end
