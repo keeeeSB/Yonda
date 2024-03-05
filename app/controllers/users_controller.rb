@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       flash[:success] = "Yondaアプリへようこそ!"
       redirect_to @user
     else
-      render 'new', status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
   
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :family_id)
   end
 end
