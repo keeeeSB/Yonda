@@ -1,0 +1,15 @@
+<% provide(:title, "家族ページ") %>
+<h1 class="text-center p-5">家族ページ</h1>
+
+<h2 class="text-center text-success">
+  <%= "#{@family.name}家" %>
+</h2>
+<h3 class="text-center">
+  <%= @family.introduction %>
+</h3>
+
+<div>
+  <% @family.users.each do |user| %>
+    <p><%= user.name %></p>
+  <% end %>
+</div>
