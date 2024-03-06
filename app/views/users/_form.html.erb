@@ -1,0 +1,29 @@
+<%= form_with(model: @user) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <div class="mb-3">
+    <%= f.label :name, class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :email, class: "form-label" %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :password, class: "form-label" %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :password_confirmation, class: "form-label" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :family_id, class: "form-label" %>
+    <%= f.select :family_id, options_for_select(Family.all.map { |family| [family.name, family.id] }), { include_blank: true }, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= link_to "新しい家族グループを追加", new_family_path, class: "text-success" %>
+  </div>
+  <div class="mb-3 d-grid gap-2">
+    <%= f.submit yield(:button_text), class: "btn btn-warning btn-lg" %>
+  </div>
+<% end %>
