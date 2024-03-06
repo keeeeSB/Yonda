@@ -10,10 +10,19 @@
       <%= @family.introduction %>
     </h3>
 
-    <div class="text-center fs-3">
+    <h4 class="text-secondary">家族一覧</h4>
+    <div class="text-center fs-3 border-bottom pb-3 mb-3">
       <% @family.users.each do |user| %>
         <p><%= user.name %></p>
       <% end %>
+    </div>
+
+    <h4 class="text-secondary">お子さま一覧</h4>
+    <div class="text-center fs-3 border-bottom pb-3 mb-3">
+      <% @family.children.each do |child| %>
+        <p><%= child.name %></p>
+      <% end %>
+      <%= link_to "お子さまを追加", new_child_path, class: "btn btn-outline-warning" %>
     </div>
   </div>
 </div>
