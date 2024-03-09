@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_06_055547) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_09_072839) do
   create_table "children", force: :cascade do |t|
     t.string "name"
     t.string "gender"
-    t.string "birthday"
+    t.date "birthday"
     t.integer "family_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
