@@ -3,4 +3,5 @@ class Family < ApplicationRecord
   validates :introduction, length: { maximum: 100 }
 
   has_many :users, dependent: :destroy
+  has_many :children, dependent: :destroy
 end
