@@ -13,4 +13,23 @@ class BooksController < ApplicationController
       @google_books = JSON.parse(res.body)
     end
   end
+
+  def create
+    @book = current_user.books.build(book_params)
+    if @book.save_with_author(authors_params[:authors])
+      redirect_to books_path, success: t('.success')
+    else
+      flash.now[:danger] = t('.fail')
+    end
+  end
+
+  private  
+
+  def book_params
+    params.require(:book).permit(:title, :image_link, :info_link, :published_date, :systemid)
+  end
+  
+  def authors_params
+    params.require(:book).permit(authors: [])
+  end
 end
