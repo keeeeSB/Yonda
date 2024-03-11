@@ -14,19 +14,23 @@ class BooksController < ApplicationController
     end
   end
 
+  def index
+    @book = Book.all
+  end
+
   def create
     @book = current_user.books.build(book_params)
     if @book.save_with_author(authors_params[:authors])
-      redirect_to books_path, success: t('.success')
+      redirect_to books_path, success: "お気に入りに追加しました"
     else
-      flash.now[:danger] = t('.fail')
+      flash.now[:danger] = "お気に入りに追加できませんでした"
     end
   end
 
   private  
 
   def book_params
-    params.require(:book).permit(:title, :image_link, :info_link, :published_date, :systemid)
+    params.require(:book).permit(:title, :sumbnail_url, :published_date, :isbn)
   end
   
   def authors_params
