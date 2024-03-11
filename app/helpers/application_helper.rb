@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def google_book_thumbnail(google_book)
-    google_book['volumeInfo']['imageLinks'].nil? ? 'sample.jpg' : google_book['volumeInfo']['imageLinks']['thumbnail']
+    google_book['volumeInfo']['imageLinks'].nil? ? 'sample.png' : google_book['volumeInfo']['imageLinks']['thumbnail']
   end
   
   def set_google_book_params(google_book)
