@@ -13,7 +13,7 @@
         <li><%= link_to "よんだとは", about_path, class: "nav-link px-2 text-white fs-4" %></li>
       </ul>
 
-      <%= form_with url: search_books_path, local: true, method: :get, class: "row align-items-center" do |f| %>
+      <%= form_with url: search_books_path, local: true, method: :get, class: "row align-items-center px-2" do |f| %>
         <div class="d-flex align-items-center">
           <%= f.search_field :search, class: "form-control form-control-dark me-2", value: params[:search], placeholder: "タイトル、著者など" %>
           <%= f.submit "検索", class: "btn btn-light btn-lg" %>
