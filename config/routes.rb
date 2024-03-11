@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :families
   resources :children
+  resources :books do
+    collection { get :search }
+  end
 end
