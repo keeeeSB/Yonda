@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   has_many :book_authors
+  has_many :read_records
 
   def save_with_author(authors)
     ActiveRecord::Base.transaction do

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   belongs_to :family
+  has_many :read_records
 
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)
