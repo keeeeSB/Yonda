@@ -1,5 +1,23 @@
 class BooksController < ApplicationController
 
+  def index
+    @books = Book.all.includes([:author, :user]).order(created_at: :desc)
+    @book = current_user.books.includes([:author, :user]).order(created_at: :desc)
+  end
+
+  def new
+    @book = Book.find(params[:format])
+  end
+
+  def create
+    @book = current_user.books.build(book_params)
+    if @book.save_with_author(authors_params[:authors])
+      redirect_to books_path, success: "お気に入りに追加しました"
+    else
+      flash.now[:danger] = "お気に入りに追加できませんでした"
+    end
+  end
+
   def search
     if params[:search].nil?
       return
@@ -11,19 +29,6 @@ class BooksController < ApplicationController
       text = params[:search]
       res = Faraday.get(url, q: text, langRestrict: 'ja', maxResults: 20)
       @google_books = JSON.parse(res.body)
-    end
-  end
-
-  def index
-    @book = Book.all
-  end
-
-  def create
-    @book = current_user.books.build(book_params)
-    if @book.save_with_author(authors_params[:authors])
-      redirect_to books_path, success: "お気に入りに追加しました"
-    else
-      flash.now[:danger] = "お気に入りに追加できませんでした"
     end
   end
 
