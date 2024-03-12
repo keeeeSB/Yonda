@@ -25,7 +25,8 @@
           <div class="card mb-3", style="height: 270px; min-width: 300px;">
             <div class="row g-0">
               <div class="col-5">
-                <%= image_tag google_book_thumbnail(google_book), class: 'img-fluid ms-2 mt-2 border book-img m-1' %>
+                <%= image_tag google_book_thumbnail(google_book), class: 'img-fluid ms-3 mt-3 border book-img m-1' %>
+                <%= link_to "この本を読み聞かせる", new_read_record_path, method: :post, class: "ms-2 mt-3 btn btn btn-outline-info btn-lg" %>
                 <!-- 投稿フォーム -->
                 <%= form_with model: @book, local: true, id: "new_book" do |f| %>
                   <%= f.hidden_field :title, value: set_google_book_params(google_book)["title"] %>
@@ -36,7 +37,7 @@
                   <% set_google_book_params(google_book)["authors"]&.each do |author| %>
                     <%= hidden_field_tag 'book[authors][]', author %>
                   <% end %>
-                  <%= f.submit "お気に入りに追加", class: "ms-3 mt-3 btn btn-outline-warning btn-lg" %>
+                  <%= f.submit "お気に入りに追加", class: "ms-4 mt-3 btn btn-outline-warning btn-lg" %>
                 <% end %>
               </div>
               <div class="col-7">
