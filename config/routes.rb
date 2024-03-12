@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :books do
     collection { get :search }
   end
+  resources :read_records, only: %i[new create]
 end

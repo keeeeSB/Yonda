@@ -1,0 +1,24 @@
+<% provide(:title, "読み聞かせ記録") %>
+<h1 class="text-center p-5">読み聞かせ記録</h1>
+
+<div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto w-50">
+    <%= form_with(model: @read_record) do |f| %>
+      <div class="mb-3">
+        <%= f.label :child_id, class: "form-label" %>
+        <%= f.select :child_id, options_for_select(Child.all.map { |child| [child.name, child.id] }), { include_blank: true }, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :read_date, class: "form-label" %>
+        <%= f.date_field :read_date, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :body, class: "form-label" %>
+        <%= f.text_field :body, class: "form-control" %>
+      </div>
+      <div class="mb-3 d-grid gap-2">
+        <%= f.submit "作成", class: "btn btn-warning btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>
