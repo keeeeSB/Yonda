@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_11_010049) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_12_010251) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -52,6 +52,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_11_010049) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "read_records", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "user_id", null: false
+    t.text "body"
+    t.date "read_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_read_records_on_book_id"
+    t.index ["user_id"], name: "index_read_records_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -67,5 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_11_010049) do
   add_foreign_key "book_authors", "authors"
   add_foreign_key "book_authors", "books"
   add_foreign_key "children", "families"
+  add_foreign_key "read_records", "books"
+  add_foreign_key "read_records", "users"
   add_foreign_key "users", "families"
 end
