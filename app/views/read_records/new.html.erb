@@ -5,10 +5,6 @@
   <div class="col-md-10 col-lg-8 mx-auto w-50">
     <%= form_with(model: @read_record) do |f| %>
       <div class="mb-3">
-        <%= f.label :child_id, class: "form-label" %>
-        <%= f.select :child_id, options_for_select(Child.all.map { |child| [child.name, child.id] }), { include_blank: true }, class: "form-control" %>
-      </div>
-      <div class="mb-3">
         <%= f.label :read_date, class: "form-label" %>
         <%= f.date_field :read_date, class: "form-control" %>
       </div>

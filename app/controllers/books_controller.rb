@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.find(params[:format])
+    @book = Book.new
   end
 
   def create
