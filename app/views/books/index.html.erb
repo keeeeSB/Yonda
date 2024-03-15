@@ -4,9 +4,9 @@
   <h1 class="text-center p-5">お気に入り一覧</h1>
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2">
-      <%= render "book" %>
+      <%= render @books %>
     </div>
   </div>
 <% else %>
-  <h3 class="text-center top-text p-3">お気に入りが存在しません</h3>
+  <h3 class="text-center top-text p-3">お気に入りが存在しません。</h3>
 <% end %>
