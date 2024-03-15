@@ -1,7 +1,7 @@
 class ReadRecordsController < ApplicationController
 
   def new
-    @read_record = ReadRecord.new(user_id: current_user.id, book_id: params[:book_id])
+    @read_record = current_user.read_records.new(book_id: params[:book_id])
   end
 
   def create
