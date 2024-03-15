@@ -15,15 +15,15 @@ module ApplicationHelper
   end
   
   def set_google_book_params(google_book)
-    google_book['volumeInfo']['thumbnail'] = google_book.dig('volumeInfo', 'imageLinks', 'thumbnail')&.gsub("http", "https")
+    google_book['volumeInfo']['image_link'] = google_book.dig('volumeInfo', 'imageLinks', 'thumbnail')&.gsub("http", "https")
   
     # ISBNは13桁と10桁があり、どちら1つを取得できればよいので、最初に検索した値をisbnに代入する
     if google_book['volumeInfo']['industryIdentifiers']&.select { |h| h["type"].include?("ISBN") }.present?
-      google_book['volumeInfo']['isbn'] = google_book['volumeInfo']['industryIdentifiers']&.select { |h| h["type"].include?("ISBN") }.first["identifier"]
+      google_book['volumeInfo']['systemid'] = google_book['volumeInfo']['industryIdentifiers']&.select { |h| h["type"].include?("ISBN") }.first["identifier"]
     end
   
     # volumeInfoの中が必要な項目のみになるようsliceを使って絞り込む
-    google_book['volumeInfo'].slice('title', 'authors', 'publishedDate', 'thumbnail', 'isbn', 'canonicalVolumeLink')
+    google_book['volumeInfo'].slice('title', 'authors', 'publishedDate', 'image_link', 'systemid')
   end
   
 end

@@ -1,12 +1,8 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all.includes([:author, :user]).order(created_at: :desc)
-    @book = current_user.books.includes([:author, :user]).order(created_at: :desc)
-  end
-
-  def new
-    @book = Book.new
+    @books = Book.all.includes([:authors, :user]).order(created_at: :desc)
+    @book = current_user.books.includes([:authors, :user]).order(created_at: :desc)
   end
 
   def create
@@ -19,6 +15,8 @@ class BooksController < ApplicationController
   end
 
   def search
+    @book = Book.new
+    @volume_info = params[:volumeInfo]
     if params[:search].nil?
       return
     elsif params[:search].blank?
@@ -35,7 +33,7 @@ class BooksController < ApplicationController
   private  
 
   def book_params
-    params.require(:book).permit(:title, :sumbnail_url, :published_date, :isbn)
+    params.require(:book).permit(:title, :image_link, :published_date, :systemid)
   end
   
   def authors_params
