@@ -3,6 +3,10 @@
 
 <div class="row">
   <div class="col-md-10 col-lg-8 mx-auto w-50">
+    <div class="mx-auto" style="width: 15rem; height: 20rem">
+      <%= image_tag @book.image_link.present? ? @book.image_link : 'sample.png', class: 'card-img-top book-img' %>
+      <div class="fs-4 p-3"><%= @book.title.truncate(10) %></div>
+    </div>
     <%= form_with(model: @read_record) do |f| %>
       <div class="mb-3">
         <%= f.hidden_field :book_id, value: @read_record.book_id %>
