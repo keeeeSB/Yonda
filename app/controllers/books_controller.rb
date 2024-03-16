@@ -1,14 +1,14 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all.includes([:authors, :user]).order(created_at: :desc)
+    @books = current_user.books.all.includes([:authors, :user]).order(created_at: :desc)
     @book = current_user.books.includes([:authors, :user]).order(created_at: :desc)
   end
 
   def create
     @book = current_user.books.build(book_params)
     if @book.save_with_author(authors_params[:authors])
-      redirect_to books_path, success: "お気に入りに追加しました"
+      redirect_to books_path(current_user), success: "お気に入りに追加しました"
     else
       flash.now[:danger] = "お気に入りに追加できませんでした"
     end
