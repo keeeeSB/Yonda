@@ -10,9 +10,12 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><%= read_record.book.title %></h5>
-            <p class="card-text"><%= read_record.read_date %></p>
-            <h5>よんだ人 : <%= read_record.user.name %></h4>
+            <h4 class="card-title"><%= read_record.book.title %></h4>
+            <h5 class="card-text">よんだ人 : <%= read_record.user.name %></h5>
+            <h5 class="card-text">よんだ日付 : <%= read_record.read_date %></h5>
+            <% if read_record.body.present? %>
+              <h5 class="card-text">コメント : <%= read_record.body %></h5>
+            <% end %>
           </div>
         </div>
       </div>
