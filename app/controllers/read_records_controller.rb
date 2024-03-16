@@ -5,8 +5,9 @@ class ReadRecordsController < ApplicationController
   end
 
   def create
-    @read_record = current_user.read_records.new(read_record_params)
+    @read_record = current_user.read_records.build(read_record_params)
     if @read_record.save
+      ChildReadRecord.create(child_id: params[:read_record][:child_id], read_record_id: @read_record.id)
       flash[:success] = "読み聞かせ記録を作成しました"
       redirect_to home_path
     else
