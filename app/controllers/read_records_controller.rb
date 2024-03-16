@@ -1,5 +1,10 @@
 class ReadRecordsController < ApplicationController
 
+
+  def index
+    @read_records = ReadRecord.all.order(created_at: :desc)
+  end
+
   def new
     @read_record = current_user.read_records.new(book_id: params[:book_id])
     @book = current_user.books.find(params[:book_id])
