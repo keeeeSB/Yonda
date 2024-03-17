@@ -1,6 +1,22 @@
 class BooksController < ApplicationController
 
+  def index
+    @books = current_user.books.all.includes([:authors, :user]).order(created_at: :desc)
+    @book = current_user.books.includes([:authors, :user]).order(created_at: :desc)
+  end
+
+  def create
+    @book = current_user.books.build(book_params)
+    if @book.save_with_author(authors_params[:authors])
+      redirect_to books_path(current_user), success: "お気に入りに追加しました"
+    else
+      flash.now[:danger] = "お気に入りに追加できませんでした"
+    end
+  end
+
   def search
+    @book = Book.new
+    @volume_info = params[:volumeInfo]
     if params[:search].nil?
       return
     elsif params[:search].blank?
@@ -14,23 +30,10 @@ class BooksController < ApplicationController
     end
   end
 
-  def index
-    @book = Book.all
-  end
-
-  def create
-    @book = current_user.books.build(book_params)
-    if @book.save_with_author(authors_params[:authors])
-      redirect_to books_path, success: "お気に入りに追加しました"
-    else
-      flash.now[:danger] = "お気に入りに追加できませんでした"
-    end
-  end
-
   private  
 
   def book_params
-    params.require(:book).permit(:title, :sumbnail_url, :published_date, :isbn)
+    params.require(:book).permit(:title, :image_link, :published_date, :systemid)
   end
   
   def authors_params

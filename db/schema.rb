@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_11_010049) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_15_003810) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -28,11 +28,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_11_010049) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
-    t.string "isbn"
+    t.string "systemid"
     t.string "published_date"
-    t.string "thumbnail_url"
+    t.string "image_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "child_read_records", force: :cascade do |t|
+    t.integer "child_id", null: false
+    t.integer "read_record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_child_read_records_on_child_id"
+    t.index ["read_record_id"], name: "index_child_read_records_on_read_record_id"
   end
 
   create_table "children", force: :cascade do |t|
@@ -52,6 +63,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_11_010049) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "read_records", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "user_id", null: false
+    t.text "body"
+    t.date "read_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_read_records_on_book_id"
+    t.index ["user_id"], name: "index_read_records_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -66,6 +88,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_11_010049) do
 
   add_foreign_key "book_authors", "authors"
   add_foreign_key "book_authors", "books"
+  add_foreign_key "books", "users"
+  add_foreign_key "child_read_records", "children"
+  add_foreign_key "child_read_records", "read_records"
   add_foreign_key "children", "families"
+  add_foreign_key "read_records", "books"
+  add_foreign_key "read_records", "users"
   add_foreign_key "users", "families"
 end
