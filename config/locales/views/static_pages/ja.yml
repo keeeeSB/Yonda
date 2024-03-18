@@ -2,9 +2,6 @@ ja:
   static_pages:
     top:
       inner_text: よんだ？
-    home:
-      title: ホーム
-      sub-title: 最近の記録
     about:
       title: よんだとは
       sub-title: よんだ？

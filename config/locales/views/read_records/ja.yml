@@ -1,0 +1,14 @@
+ja:
+  read_records:
+    index:
+      title: ホーム
+      sub-title: みんなの記録
+      reader: よんだ人
+      read_date: よんだ日付
+      comment: コメント
+    new:
+      title: 読み聞かせ記録
+      button_text: 作成
+    create:
+      success: 読み聞かせ記録を作成しました
+      failure: 読み聞かせ記録を作成できませんでした
