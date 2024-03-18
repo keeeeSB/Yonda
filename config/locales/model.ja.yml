@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー 
       read_record: 読み聞かせ記録
+      family: 家族
     attributes:
         user:
           name: おなまえ
@@ -14,6 +15,9 @@ ja:
           child_id: お子さま
           read_date: よんだ日付
           body: コメント
+        family:
+          name: 苗字
+          introduction: 紹介文
   attributes:
     created_at: 作成日
     updated_at: 更新日
