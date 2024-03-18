@@ -1,0 +1,11 @@
+ja:
+  sessions:
+    new:
+      title: ログイン
+      remember_me: 次回から自動ログインにする
+      login: ログイン
+      email: メールアドレス
+      password: パスワード
+    create:
+      success: ログインに成功しました
+      failure: ログインに失敗しました

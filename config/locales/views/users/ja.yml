@@ -1,8 +1,13 @@
 ja:
   users:
     new:
-      title: "新規登録"
-      button_text: "登録"
+      title: 新規登録
+      button_text: 登録
+    create:
+      success: Yondaアプリへようこそ!
     edit:
-      title: "ユーザー編集"
-      button_text: "更新"
+      title: ユーザー編集
+      button_text: 更新
+    update:
+      success: ユーザー情報を更新しました
+      failure: ユーザー情報を更新できませんでした
