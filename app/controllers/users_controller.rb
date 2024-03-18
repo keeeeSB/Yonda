@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      flash[:success] = "Yondaアプリへようこそ!"
+      flash[:success] = t(".success")
       redirect_to @user
     else
       render :new, status: :unprocessable_entity
@@ -27,10 +27,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "ユーザー情報を更新しました"
+      flash[:success] = t(".success")
       redirect_to @user
     else
-      flash.now[:danger] = "ユーザー情報を更新できませんでした"
+      flash.now[:danger] = t(".failure")
       render :edit, status: :unprocessable_entity
     end
   end
