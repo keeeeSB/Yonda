@@ -10,3 +10,10 @@ ja:
       login: ログイン
       mypage: マイページ
       logout: ログアウト
+    footer:
+      home: ホーム
+      about: よんだとは
+      terms: 利用規約
+      privacy: プライバシーポリシー
+      contact: お問い合わせ
+      copyright: Copyright © 2024 Keisuke Kiriyama
