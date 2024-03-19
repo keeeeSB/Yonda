@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
+    flash.now[:danger] = t(".success")
     redirect_to root_url, status: :see_other
   end
 end

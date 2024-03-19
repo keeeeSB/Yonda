@@ -11,3 +11,5 @@ ja:
     update:
       success: ユーザー情報を更新しました
       failure: ユーザー情報を更新できませんでした
+    destroy:
+      success: ログアウトしました
