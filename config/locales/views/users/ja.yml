@@ -5,6 +5,11 @@ ja:
       button_text: 登録
     create:
       success: Yondaアプリへようこそ!
+    show:
+      title: マイページ
+      name: おなまえ
+      email: メールアドレス
+      family: 家族グループ
     edit:
       title: ユーザー編集
       button_text: 更新
