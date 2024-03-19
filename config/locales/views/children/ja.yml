@@ -4,4 +4,5 @@ ja:
       title: お子さま登録
       button_text: 登録
     create: 
-      success: 家族情報の登録ができました
+      success: お子さまを追加しました
+      failure: お子sまを追加できませんでした

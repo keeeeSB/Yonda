@@ -6,10 +6,9 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.new(child_params)
     if @child.save
-      flash[:success] = "お子さまを追加しました"
-      redirect_to family_path(current_user)
+      redirect_to family_path(current_user), success: t(".success")
     else
-      flash.now[:danger] = "お子さまを追加できませんでした"
+      flash.now[:danger] = t(".failure")
       render :new
     end
   end
