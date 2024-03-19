@@ -28,5 +28,26 @@
       <% end %>
       <%= link_to t(".button_text"), new_child_path, class: "btn btn-outline-warning" %>
     </div>
+
+    <h4 class="text-secondary"><%= t(".read_record") %></h4>
+    <% @family.read_records.order(created_at: :desc).each do |read_record| %>
+      <div class="card mb-3 mx-auto" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <%= image_tag read_record.book.image_link, class: "img-fluid rounded-start" %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title"><%= read_record.book.title %></h4>
+              <h5 class="card-text"><%= t(".reader") %> : <%= read_record.user.name %></h5>
+              <h5 class="card-text"><%= t(".read_date") %> : <%= read_record.read_date %></h5>
+              <% if read_record.body.present? %>
+                <h5 class="card-text"><%= t(".comment") %> : <%= read_record.body %></h5>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

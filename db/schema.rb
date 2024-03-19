@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_19_051433) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_19_191836) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -70,7 +70,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_19_051433) do
     t.date "read_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "family_id", null: false
     t.index ["book_id"], name: "index_read_records_on_book_id"
+    t.index ["family_id"], name: "index_read_records_on_family_id"
     t.index ["user_id"], name: "index_read_records_on_user_id"
   end
 
@@ -94,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_19_051433) do
   add_foreign_key "child_read_records", "read_records"
   add_foreign_key "children", "families"
   add_foreign_key "read_records", "books"
+  add_foreign_key "read_records", "families"
   add_foreign_key "read_records", "users"
   add_foreign_key "users", "families"
 end

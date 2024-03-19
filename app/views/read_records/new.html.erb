@@ -12,8 +12,11 @@
         <%= f.hidden_field :book_id, value: @read_record.book_id %>
       </div>
       <div class="mb-3">
+        <%= f.hidden_field :family_id, value: @read_record.family_id %>
+      </div>
+      <div class="mb-3">
         <%= f.label :child_id, class: "form-label" %>
-        <%= f.select :child_id, options_for_select(Child.all.map { |child| [child.name, child.id] }), {}, class: "form-control" %>
+        <%= f.select :child_id, options_for_select(@read_record.family.children.map { |child| [child.name, child.id] }), {}, class: "form-control" %>
       </div>
       <div class="mb-3">
         <%= f.label :read_date, class: "form-label" %>

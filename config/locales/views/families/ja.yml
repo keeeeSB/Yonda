@@ -10,3 +10,7 @@ ja:
       family: 家族一覧
       child: お子さま一覧
       button_text: お子さまを追加
+      read_record: 読み聞かせ記録一覧
+      reader: よんだ人
+      read_date: よんだ日付
+      comment: コメント
