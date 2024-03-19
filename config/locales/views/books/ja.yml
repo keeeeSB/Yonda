@@ -1,0 +1,20 @@
+ja:
+  books:
+    index:
+      title: お気に入り
+      sub-title: お気に入り一覧
+      none: お気に入りがありません
+    search:
+      title: 検索結果
+      search_book: 絵本を検索してください
+      search: 検索
+      text: 書名・著者等で検索することができます。
+      button_text: 検索
+      keyword: キーワード
+      favorite: お気に入りに追加
+      failure: 検索ワードが入力されていません
+    book:
+      read_book: この本を読み聞かせる
+    create:
+      success: お気に入りに追加しました
+      failure: お気に入りに追加できませんでした

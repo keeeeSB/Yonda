@@ -1,22 +1,20 @@
-<% provide(:title, "検索結果") %>
+<% provide(:title, t(".title")) %>
 <div class="container pt-3">
   <div class="row mb-3">
     <div class="col">
-      <!-- 検索フォーム -->
       <%= form_with url: search_books_path, local: true, method: :get do |f| %>
         <div class="mb-3">
-          <h6 class="fw-bolder">絵本を検索してください</h6>
-          <%= f.search_field :search, class: "form-control", placeholder: '検索', value: params[:search] %>
-          <p class=""><small class="text-secondary">書名・著者等で検索することができます。</small></p>
+          <h6 class="fw-bolder"><%= t(".search_book") %></h6>
+          <%= f.search_field :search, class: "form-control", placeholder: t(".search"), value: params[:search] %>
+          <p class=""><small class="text-secondary"><%= t(".text") %></small></p>
         </div>
-        <%= f.submit "検索", class: "btn btn-outline-success" %>
+        <%= f.submit t(".button_text"), class: "btn btn-outline-success" %>
       <% end %>
     </div>
   </div>
-  <!-- 検索結果 -->
   <% if @google_books.present? %>
     <div class="bg-white border rounded-2 px-3 mb-3">
-      <p class="py-1 my-2 fw-bolder">検索結果<span class="fw-normal fs-7"> キーワード : <%= params[:search] %></span></p>
+      <p class="py-1 my-2 fw-bolder"><%= t(".title") %><span class="fw-normal fs-7"><%= t(".keyword") %> : <%= params[:search] %></span></p>
     </div>
     <div class="row">
       <% @google_books['items']&.each do |google_book| %>
@@ -35,7 +33,7 @@
                   <% set_google_book_params(google_book)["authors"]&.each do |author| %>
                     <%= hidden_field_tag 'book[authors][]', author %>
                   <% end %>
-                  <%= f.submit "お気に入りに追加", class: "ms-4 mt-1 btn btn-outline-warning btn-lg" %>
+                  <%= f.submit t(".favorite"), class: "ms-4 mt-1 btn btn-outline-warning btn-lg" %>
                 <% end %>
               </div>
               <div class="col-7">

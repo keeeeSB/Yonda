@@ -8,9 +8,9 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.build(book_params)
     if @book.save_with_author(authors_params[:authors])
-      redirect_to books_path(current_user), success: "お気に入りに追加しました"
+      redirect_to books_path(current_user), success: t(".success")
     else
-      flash.now[:danger] = "お気に入りに追加できませんでした"
+      flash.now[:danger] = t(".failure")
     end
   end
 
@@ -20,7 +20,7 @@ class BooksController < ApplicationController
     if params[:search].nil?
       return
     elsif params[:search].blank?
-      flash.now[:danger] = "検索ワードが入力されていません"
+      flash.now[:danger] = t(".failure")
       return
     else
       url = "https://www.googleapis.com/books/v1/volumes"
