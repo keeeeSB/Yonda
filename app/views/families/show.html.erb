@@ -6,24 +6,24 @@
     <h2 class="text-center text-success">
       <%= "#{@family.name}家" %>
     </h2>
-    <h3 class="text-center border-bottom pb-3 mb-3">
+    <h3 class="text-center border-bottom pb-3 mb-5">
       <%= @family.introduction %>
     </h3>
 
     <h4 class="text-secondary"><%= t(".family") %></h4>
-    <div class="text-center fs-3 border-bottom pb-3 mb-3">
+    <div class="text-center fs-3 border-bottom pb-3 mb-5">
       <% @family.users.each do |user| %>
         <p><%= user.name %></p>
       <% end %>
     </div>
 
     <h4 class="text-secondary"><%= t(".child") %></h4>
-    <div class="text-center fs-3 border-bottom pb-3 mb-3">
+    <div class="text-center fs-3 border-bottom pb-3 mb-5">
       <% @family.children.each do |child| %>
-        <ul class="nav justify-content-center pb-3 mb-3">
-          <li class="px-3 text-body-secondary"><%= child.name %></li>
+        <ul class="nav justify-content-center pb-3 mb-5">
+          <li class="px-3"><%= child.name %></li>
           <li class="px-3"><%= child.gender %></li>
-          <li class="px-3"><%= child.birthday %></li>
+          <li class="px-3"><%= child.birthday.strftime('%Y年%-m月%-d日生まれ') %></li>
         </ul>
       <% end %>
       <%= link_to t(".button_text"), new_child_path, class: "btn btn-outline-warning" %>
