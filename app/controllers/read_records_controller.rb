@@ -6,7 +6,7 @@ class ReadRecordsController < ApplicationController
   end
 
   def new
-    @read_record = current_user.read_records.new(book_id: params[:book_id])
+    @read_record = current_user.read_records.new(book_id: params[:book_id], family_id: current_user.family_id)
     @book = current_user.books.find(params[:book_id])
   end
 
@@ -18,13 +18,13 @@ class ReadRecordsController < ApplicationController
       redirect_to home_path
     else
       flash.now[:danger] = t(".failure")
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def read_record_params
-    params.require(:read_record).permit(:body, :read_date, :book_id, :user_id)
+    params.require(:read_record).permit(:body, :read_date, :book_id, :user_id, :family_id)
   end
 end
