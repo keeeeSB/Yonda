@@ -1,0 +1,12 @@
+ja:
+  families:
+    new:
+      title: 家族登録
+      button_text: 登録
+    create:
+      success: 家族情報の登録ができました
+    show:
+      title: 家族ページ
+      family: 家族一覧
+      child: お子さま一覧
+      button_text: お子さまを追加

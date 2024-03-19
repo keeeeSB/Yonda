@@ -1,5 +1,5 @@
-<% provide(:title, "ホーム") %>
-<h1 class="text-center p-5">みんなの記録</h1>
+<% provide(:title, t(".title")) %>
+<h1 class="text-center p-5"><%= t(".sub-title") %></h1>
 
 <div class="container">
   <% @read_records.each do |read_record| %>
@@ -11,10 +11,10 @@
         <div class="col-md-8">
           <div class="card-body">
             <h4 class="card-title"><%= read_record.book.title %></h4>
-            <h5 class="card-text">よんだ人 : <%= read_record.user.name %></h5>
-            <h5 class="card-text">よんだ日付 : <%= read_record.read_date %></h5>
+            <h5 class="card-text"><%= t(".reader") %> : <%= read_record.user.name %></h5>
+            <h5 class="card-text"><%= t(".read_date") %> : <%= read_record.read_date %></h5>
             <% if read_record.body.present? %>
-              <h5 class="card-text">コメント : <%= read_record.body %></h5>
+              <h5 class="card-text"><%= t(".comment") %> : <%= read_record.body %></h5>
             <% end %>
           </div>
         </div>

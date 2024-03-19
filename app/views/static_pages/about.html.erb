@@ -1,6 +1,6 @@
-<% provide(:title, "よんだとは") %>
+<% provide(:title, t(".title")) %>
 <div class="px-4 py-5 my-5 text-center">
-  <h1 class="display-5 fw-bold text-body-emphasis">よんだ？</h1>
+  <h1 class="display-5 fw-bold text-body-emphasis"><%= t(".sub-title") %></h1>
 
   <div class="display-5 fw-bold text-body-emphasis">
     <p class="lead mb-4">
@@ -11,5 +11,5 @@
     </p>
   </div>
 
-  <%= link_to "早速登録しよう!", signup_path, class: "btn btn-outline-success btn-lg px-4 gap-3" %>
+  <%= link_to t(".sign_up"), signup_path, class: "btn btn-outline-success btn-lg px-4 gap-3" %>
 </div>

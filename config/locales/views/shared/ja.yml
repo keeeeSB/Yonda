@@ -1,0 +1,19 @@
+ja:
+  shared:
+    header:
+      title: Yonda
+      home: ホーム
+      about: よんだとは
+      placeholder: タイトル、著者など
+      button_text: 検索
+      signup: 新規登録
+      login: ログイン
+      mypage: マイページ
+      logout: ログアウト
+    footer:
+      home: ホーム
+      about: よんだとは
+      terms: 利用規約
+      privacy: プライバシーポリシー
+      contact: お問い合わせ
+      copyright: Copyright © 2024 Keisuke Kiriyama

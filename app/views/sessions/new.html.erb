@@ -1,5 +1,5 @@
-<% provide(:title, "ログイン") %>
-<h1 class="text-center p-5">ログイン</h1>
+<% provide(:title, t(".title")) %>
+<h1 class="text-center p-5"><%= t(".title") %></h1>
 
 <div class="row">
   <div class="col-md-10 col-lg-8 mx-auto w-50">
@@ -15,11 +15,11 @@
       <div class="form-check">
         <%= f.label :remember_me, class: "form-check-label" do %>
           <%= f.check_box :remember_me, class: "form-check-input" %>
-          <span>次回から自動ログインする</span>
+          <span><%= t(".remember_me") %></span>
         <% end %>
       </div>
       <div class="mb-3 d-grid gap-2">
-        <%= f.submit "ログイン", class: "btn btn-warning btn-lg" %>
+        <%= f.submit t(".login"), class: "btn btn-warning btn-lg" %>
       </div>
     <% end %>
   </div>
