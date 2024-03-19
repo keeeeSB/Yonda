@@ -2,7 +2,7 @@ class ReadRecordsController < ApplicationController
 
 
   def index
-    @read_records = ReadRecord.all.order(created_at: :desc)
+    @read_records = ReadRecord.all.order(created_at: :desc).page(params[:page])
   end
 
   def new
