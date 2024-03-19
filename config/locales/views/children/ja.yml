@@ -1,0 +1,7 @@
+ja:
+  children:
+    new:
+      title: お子さま登録
+      button_text: 登録
+    create: 
+      success: 家族情報の登録ができました

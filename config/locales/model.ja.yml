@@ -4,6 +4,7 @@ ja:
       user: ユーザー 
       read_record: 読み聞かせ記録
       family: 家族
+      child: お子さま
     attributes:
         user:
           name: おなまえ
@@ -18,6 +19,11 @@ ja:
         family:
           name: 苗字
           introduction: 紹介文
+        child:
+          name: おなまえ
+          gender: 性別
+          birthday: 誕生日
+          family_id: 家族グループ
   attributes:
     created_at: 作成日
     updated_at: 更新日
