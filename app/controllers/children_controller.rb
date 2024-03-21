@@ -1,6 +1,6 @@
 class ChildrenController < ApplicationController
   def new
-    @child = Child.new
+    @child = Child.new(family_id: params[:family_id])
   end
 
   def create

@@ -8,9 +8,9 @@ class FamiliesController < ApplicationController
     @family = Family.new(family_params)
     if @family.save
       flash[:success] = t(".success")
-      redirect_to @family
+      redirect_to signup_path
     else
-      render 'new', status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
