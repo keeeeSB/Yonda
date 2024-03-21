@@ -5,5 +5,5 @@ class ReadRecord < ApplicationRecord
   has_many :children, through: :child_read_records
   has_many :child_read_records
 
-  validates :read_date, presence; true
+  validates :read_date, presence: true
 end
