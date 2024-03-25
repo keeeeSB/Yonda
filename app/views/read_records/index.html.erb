@@ -12,7 +12,7 @@
           <div class="card-body">
             <h4 class="card-title"><%= read_record.book.title %></h4>
             <h5 class="card-text"><%= t(".reader") %> : <%= read_record.user.name %></h5>
-            <h5 class="card-text"><%= t(".read_date") %> : <%= read_record.read_date %></h5>
+            <h5 class="card-text"><%= t(".read_date") %> : <%= l(read_record.read_date, format: :long) %></h5>
             <% if read_record.body.present? %>
               <h5 class="card-text"><%= t(".comment") %> : <%= read_record.body %></h5>
             <% end %>
