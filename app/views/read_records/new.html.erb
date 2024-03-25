@@ -24,6 +24,12 @@
         <%= f.date_field :read_date, class: "form-control" %>
       </div>
       <div class="mb-3">
+        <%= f.fields_for :tags, @read_record.tags.build do |tag_form| %>
+          <%= tag_form.label :name, class: "form-label" %>
+          <%= tag_form.text_field :name, class: "form-control", placeholder: "複数タグ付する場合は','で区切ってください。" %>
+        <% end %>
+      </div>
+      <div class="mb-3">
         <%= f.label :body, class: "form-label" %>
         <%= f.text_field :body, class: "form-control" %>
       </div>

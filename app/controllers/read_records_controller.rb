@@ -12,10 +12,11 @@ class ReadRecordsController < ApplicationController
 
   def create
     @read_record = current_user.read_records.build(read_record_params)
+    tags = params[:read_record][:name].split(',')
     if @read_record.save
       ChildReadRecord.create(child_id: params[:read_record][:child_id], read_record_id: @read_record.id)
-      flash[:success] = t(".success")
-      redirect_to home_path
+      @read_record.save_tags(tags)
+      redirect_to home_path, success: t(".success")
     else
       flash.now[:danger] = t(".failure")
       render :new, status: :unprocessable_entity
@@ -25,6 +26,6 @@ class ReadRecordsController < ApplicationController
   private
 
   def read_record_params
-    params.require(:read_record).permit(:body, :read_date, :book_id, :user_id, :family_id)
+    params.require(:read_record).permit(:body, :read_date, :book_id, :user_id, :family_id, tag_ids: [])
   end
 end

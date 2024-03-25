@@ -16,6 +16,9 @@
             <% if read_record.body.present? %>
               <h5 class="card-text"><%= t(".comment") %> : <%= read_record.body %></h5>
             <% end %>
+            <% @tags.each do |tag| %>
+              <h5 class="card-text"><%= read_record.tag.name %></h5>
+            <% end %>
           </div>
         </div>
       </div>
