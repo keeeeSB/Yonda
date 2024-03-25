@@ -44,6 +44,9 @@
               <% if read_record.body.present? %>
                 <h5 class="card-text"><%= t(".comment") %> : <%= read_record.body %></h5>
               <% end %>
+              <% read_record.tags.each do |tag| %>
+                <p class="fs-6 badge bg-success text-white"><%= tag.name %></p>
+              <% end %>
             </div>
           </div>
         </div>
