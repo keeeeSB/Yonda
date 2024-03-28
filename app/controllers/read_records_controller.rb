@@ -24,6 +24,27 @@ class ReadRecordsController < ApplicationController
     end
   end
 
+  def edit
+    @read_record = ReadRecord.find(params[:id])
+    @book = @read_record.book
+  end
+
+  def update
+    @read_record = ReadRecord.find(params[:id])
+    if @read_record.update(read_record_params)
+      redirect_to family_path(current_user), success: t(".success")
+    else
+      flash.now[:danger] = t(".failure")
+      redirect_to family_path(current_user)
+    end
+  end
+
+  def destroy
+    ReadRecord.find(params[:id]).destroy
+    flash[:success] = t(".success")
+    redirect_to family_path(current_user), status: :see_other
+  end
+
   private
 
   def read_record_params

@@ -12,3 +12,11 @@ ja:
     create:
       success: 読み聞かせ記録を作成しました
       failure: 読み聞かせ記録を作成できませんでした
+    edit:
+      title: 読み聞かせ記録編集
+      button_text: 更新
+    update:
+      success: 読み聞かせ記録を更新しました
+    destroy:
+      success: 読み聞かせ記録を削除しました
+      

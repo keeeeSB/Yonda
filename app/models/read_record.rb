@@ -3,7 +3,7 @@ class ReadRecord < ApplicationRecord
   belongs_to :user
   belongs_to :family
   has_many :children, through: :child_read_records
-  has_many :child_read_records
+  has_many :child_read_records, dependent: :destroy
   has_many :read_record_tags, dependent: :destroy
   has_many :tags, through: :read_record_tags
 
