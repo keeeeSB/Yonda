@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :books do
     collection { get :search }
   end
-  resources :read_records, only: %i[index new create edit destroy]
+  resources :read_records
 end

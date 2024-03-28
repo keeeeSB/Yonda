@@ -31,7 +31,12 @@ class ReadRecordsController < ApplicationController
 
   def update
     @read_record = ReadRecord.find(params[:id])
-    @read_record.update(read_record_params)
+    if @read_record.update(read_record_params)
+      redirect_to family_path(current_user), success: t(".success")
+    else
+      flash.now[:danger] = t(".failure")
+      redirect_to family_path(current_user)
+    end
   end
 
   def destroy
