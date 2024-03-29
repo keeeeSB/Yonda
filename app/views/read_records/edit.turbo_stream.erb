@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "read_record#{@read_record.id}" do %>
+  <%= render "form", read_record: @read_record %>
+<% end %>
