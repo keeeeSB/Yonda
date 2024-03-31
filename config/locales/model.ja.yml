@@ -5,6 +5,7 @@ ja:
       read_record: 読み聞かせ記録
       family: 家族
       child: お子さま
+      contact: お問い合わせ
     attributes:
         user:
           name: おなまえ
@@ -26,6 +27,10 @@ ja:
           family_id: 家族グループ
         tag:
           name: タグ付け
+        contact:
+          name: お名前
+          email: メールアドレス
+          body: お問い合わせ内容
   attributes:
     created_at: 作成日
     updated_at: 更新日
