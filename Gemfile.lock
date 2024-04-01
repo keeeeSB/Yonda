@@ -106,6 +106,10 @@ GEM
       reline (>= 0.3.1)
     debug_inspector (1.2.0)
     diff-lcs (1.5.1)
+    dotenv (3.1.0)
+    dotenv-rails (3.1.0)
+      dotenv (= 3.1.0)
+      railties (>= 6.1)
     e2mmap (0.1.0)
     erubi (1.12.0)
     execjs (2.9.1)
@@ -208,7 +212,6 @@ GEM
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
-    pg (1.5.6)
     prism (0.19.0)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -373,6 +376,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.4.1)
   capybara (= 3.38.0)
   debug (= 1.7.1)
+  dotenv-rails
   faraday
   guard (= 2.18.0)
   guard-minitest (= 2.4.6)
@@ -382,7 +386,6 @@ DEPENDENCIES
   kaminari
   minitest (= 5.18.0)
   minitest-reporters (= 1.6.0)
-  pg (~> 1.4)
   puma (= 5.6.8)
   rails (= 7.0.4.3)
   rails-controller-testing (= 1.0.5)
@@ -392,7 +395,7 @@ DEPENDENCIES
   selenium-webdriver (= 4.8.3)
   solargraph (= 0.50.0)
   sprockets-rails (= 3.4.2)
-  sqlite3 (~> 1.4)
+  sqlite3 (= 1.6.1)
   stimulus-rails (= 1.2.1)
   turbo-rails (= 1.4.0)
   web-console (= 4.2.0)
