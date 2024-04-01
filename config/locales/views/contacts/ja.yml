@@ -1,0 +1,8 @@
+ja:
+  contacts:
+    new:
+      title: お問い合わせ
+      button_text: 送信
+    create:
+      success: お問い合わせ内容を送信しました
+      failure: お問い合わせできませんでした

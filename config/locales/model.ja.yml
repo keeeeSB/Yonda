@@ -7,30 +7,30 @@ ja:
       child: お子さま
       contact: お問い合わせ
     attributes:
-        user:
-          name: おなまえ
-          email: メールアドレス
-          password: パスワード
-          password_confirmation: パスワード確認
-          family_id: 家族グループ
-        read_record:
-          child_id: お子さま
-          read_date: よんだ日付
-          body: コメント
-        family:
-          name: 苗字
-          introduction: 紹介文
-        child:
-          name: おなまえ
-          gender: 性別
-          birthday: 誕生日
-          family_id: 家族グループ
-        tag:
-          name: タグ付け
-        contact:
-          name: お名前
-          email: メールアドレス
-          body: お問い合わせ内容
+      user:
+        name: おなまえ
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        family_id: 家族グループ
+      read_record:
+        child_id: お子さま
+        read_date: よんだ日付
+        body: コメント
+      family:
+        name: 苗字
+        introduction: 紹介文
+      child:
+        name: おなまえ
+        gender: 性別
+        birthday: 誕生日
+        family_id: 家族グループ
+      tag:
+        name: タグ付け
+      contact:
+        name: お名前
+        email: メールアドレス
+        body: お問い合わせ内容
   attributes:
     created_at: 作成日
     updated_at: 更新日
