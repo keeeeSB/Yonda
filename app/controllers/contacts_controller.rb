@@ -7,7 +7,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to root_path, success: t(".success")
+      flash[:success] = t(".success")
+      redirect_to root_path
     else
       flash.now[:danger] = t(".failure")
       render :new
