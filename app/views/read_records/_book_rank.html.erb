@@ -1,0 +1,6 @@
+<div class="col text-center mb-5">
+  <div class="mx-auto" style="width: 15rem; height: 20rem">
+    <%= image_tag book_rank.image_link.present? ? book_rank.image_link : 'sample.png', class: 'card-img-top book-img' %>
+    <div class="fs-4 p-3"><%= book_rank.title.truncate(10) %></div>
+  </div>
+</div>

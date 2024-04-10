@@ -1,7 +1,21 @@
 <% provide(:title, t(".title")) %>
-<h1 class="text-center p-5"><%= t(".sub-title") %></h1>
+
+<div class="container mb-5">
+  <h1 class="text-center p-5"><%= t(".ranking") %></h1>
+  <div class="d-flex justify-content-evenly">
+    <% @book_ranks.each do |book_rank| %>
+      <div class="col text-center mb-5">
+        <div class="mx-auto" style="width: 13rem;">
+          <%= image_tag book_rank.image_link.present? ? book_rank.image_link : 'sample.png', class: 'img-thumbnail book-img' %>
+          <div class="fs-4 p-3"><%= book_rank.title.truncate(10) %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <div class="container">
+  <h1 class="text-center p-5"><%= t(".read_records") %></h1>
   <% @read_records.each do |read_record| %>
     <div class="card mb-3 mx-auto" style="max-width: 540px;">
       <div class="row g-0">
