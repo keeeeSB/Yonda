@@ -3,8 +3,19 @@
 <div class="container mb-5">
   <h1 class="text-center p-5"><%= t(".ranking") %></h1>
   <div class="d-flex justify-content-evenly">
-    <% @book_ranks.each do |book_rank| %>
-      <div class="col text-center mb-5">
+    <% @book_ranks.each_with_index do |book_rank, index| %>
+      <div class="col text-center">
+        <% if index == 0 %>
+          <%= image_tag "ranking-1.png", width: "40", height: "40" %>
+        <% elsif index == 1 %>
+          <%= image_tag "ranking-2.png", width: "40", height: "40" %>
+        <% elsif index == 2 %>
+          <%= image_tag "ranking-3.png", width: "40", height: "40" %>
+        <% elsif index == 3 %>
+          <%= image_tag "ranking-4.png", width: "40", height: "40" %>
+        <% elsif index == 4 %>
+          <%= image_tag "ranking-5.png", width: "40", height: "40" %>
+        <% end %>
         <div class="mx-auto" style="width: 13rem;">
           <%= image_tag book_rank.image_link.present? ? book_rank.image_link : 'sample.png', class: 'img-thumbnail book-img' %>
           <div class="fs-4 p-3"><%= book_rank.title.truncate(10) %></div>
