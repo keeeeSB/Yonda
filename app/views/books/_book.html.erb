@@ -1,6 +1,6 @@
 <div class="col text-center mb-5">
-  <div class="mx-auto" style="width: 15rem; height: 20rem">
-    <%= image_tag book.image_link.present? ? book.image_link : 'sample.png', class: 'card-img-top book-img' %>
+  <div class="mx-auto" style="width: 15rem; height: 22rem">
+    <%= image_tag book.image_link.present? ? book.image_link : 'sample.png', class: 'img-thumbnail book-img' %>
     <div class="fs-4 p-3"><%= book.title.truncate(10) %></div>
   </div>
   <%= link_to t(".read_book"), new_read_record_path(book_id: book.id), method: :post, class: "btn btn-outline-info" %>
