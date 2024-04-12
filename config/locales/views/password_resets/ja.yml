@@ -1,0 +1,5 @@
+ja:
+  password_resets:
+    new:
+      title: パスワードリセット
+      submit: 送信
