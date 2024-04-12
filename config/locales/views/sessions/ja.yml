@@ -6,6 +6,7 @@ ja:
       login: ログイン
       email: メールアドレス
       password: パスワード
+      password_reset: パスワードをお忘れの方はこちら
     create:
       success: ログインに成功しました
       failure: ログインに失敗しました
