@@ -6,3 +6,6 @@ ja:
     create:
       success: メールを送信しました
       failure: メールを送信できませんでした
+    edit:
+      title: パスワード再設定
+      submit: 更新
