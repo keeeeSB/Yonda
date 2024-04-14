@@ -3,3 +3,6 @@ ja:
     new:
       title: パスワードリセット
       submit: 送信
+    create:
+      success: メールを送信しました
+      failure: メールを送信できませんでした
