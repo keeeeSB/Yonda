@@ -14,7 +14,7 @@ gem "stimulus-rails",  "1.2.1"
 gem "jbuilder",        "2.11.5"
 gem "puma",            "5.6.8"
 gem "bootsnap",        "1.16.0", require: false
-# gem "sqlite3",         "1.6.1"
+gem "sqlite3",         "1.6.1"
 gem "faraday"
 gem "rails-i18n", "~> 7.0.0"
 gem "kaminari"
@@ -22,7 +22,7 @@ gem "dotenv-rails"
 
 group :development, :test do
   gem "debug",   "1.7.1", platforms: %i[ mri mingw x64_mingw ]
-  gem 'sqlite3', '~> 1.4'
+  # gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -46,5 +46,5 @@ group :test do
 end
 
 group :production do
-  gem "pg", "~> 1.4"
+  # gem "pg", "~> 1.4"
 end
