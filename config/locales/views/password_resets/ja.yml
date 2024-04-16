@@ -7,7 +7,7 @@ ja:
       success: メールを送信しました
       failure: メールを送信できませんでした
     edit:
-      title: パスワードリセット
+      title: パスワード編集
       password_reset: パスワードをリセットする
     uodate:
       success: パスワードをリセットしました
