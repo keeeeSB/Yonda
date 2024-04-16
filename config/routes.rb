@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   end
   resources :read_records
   resources :contacts, only: %i[new create]
-  resources :password_resets, only: %i[new create]
+  resources :password_resets, only: %i[new create edit update]
 end

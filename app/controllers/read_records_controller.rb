@@ -1,6 +1,5 @@
 class ReadRecordsController < ApplicationController
 
-
   def index
     @read_records = ReadRecord.all.order(created_at: :desc).page(params[:page])
     @book_ranks = Book.group(:title, :id).order('count(user_id) desc').limit(5)
