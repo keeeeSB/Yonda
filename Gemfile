@@ -23,6 +23,7 @@ gem "dotenv-rails"
 group :development, :test do
   gem "debug",   "1.7.1", platforms: %i[ mri mingw x64_mingw ]
   # gem 'sqlite3', '~> 1.4'
+  gem "letter_opener_web"
 end
 
 group :development do
