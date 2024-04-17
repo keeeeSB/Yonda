@@ -4,8 +4,8 @@ ja:
       title: パスワードリセット
       submit: 送信
     create:
-      success: メールを送信しました
-      failure: メールを送信できませんでした
+      success: パスワード再設定用のメールを送信しました
+      failure: メールアドレスが存在しません
     edit:
       title: パスワード編集
       password_reset: パスワードをリセットする

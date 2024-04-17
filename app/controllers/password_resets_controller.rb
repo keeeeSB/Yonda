@@ -5,14 +5,15 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
-    if @user.present?
-      PasswordResetMailer.with(user: @user).reset.deliver_later
+    @user = User.find_by(email: params[:password_reset][:email].downcase)
+    if @user
+      @user.create_reset_digest
+      @user.send_password_reset_email
       flash[:success] = t(".success")
-      redirect_to root_path
+      redirect_to root_url
     else
       flash.now[:danger] = t(".failure")
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
