@@ -9,8 +9,9 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
+      @user.send_activation_email
       flash[:success] = t(".success")
-      redirect_to @user
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
