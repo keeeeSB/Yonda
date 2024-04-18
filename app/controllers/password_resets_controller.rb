@@ -1,5 +1,7 @@
 class PasswordResetsController < ApplicationController
-  before_action :set_user, only: %i[create edit update]
+  before_action :set_user, only: %i[edit update]
+  before_action :valid_user, only: %i[edit update]
+  before_action :check_expiration, only: %i[edit update]
 
   def new
   end
@@ -21,10 +23,16 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    if @user.update(password_params)
+    if params[:user][:password].blank?
+      @user.errors.add(:password, :blank)
+      render :edit, status: :unprocessable_entity
+    elsif @user.update(user_params)
+      log_in @user
       flash[:success] = t(".success")
+      redirect_to @user
     else
-      render :edit
+      flash.now[:danger] = t(".failure")
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -36,5 +44,20 @@ class PasswordResetsController < ApplicationController
 
   def password_params
     params.require(:user).permit(:password, :password_confirmation)
+  end
+
+  # 正しいユーザーかどうか確認する
+  def valid_user
+    unless (@user && @user.activated? && @user.authenticated?(:reset, params[:id]))
+      redirect_to root_url
+    end
+  end
+
+  # トークンが期限切れかどうか確認する
+  def check_expiration
+    if @user.password_reset_expired?
+      flash[:danger] = "有効期限を過ぎているため、パスワードの再設定ができません。"
+      redirect_to new_password_reset_url
+    end
   end
 end

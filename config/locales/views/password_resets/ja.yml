@@ -9,5 +9,6 @@ ja:
     edit:
       title: パスワード編集
       password_reset: パスワードをリセットする
-    uodate:
-      success: パスワードをリセットしました
+    update:
+      success: パスワードを更新しました
+      failure: パスワードを更新できませんでした
