@@ -56,12 +56,18 @@ class User < ApplicationRecord
   # 有効化用のメールを送信する
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+    update_attribute(:activation_sent_at, Time.zone.now)
   end
 
   # アカウントを有効にする
   def activate
     update_attribute(:activated, true)
     update_attribute(:activated_at, Time.zone.now)
+  end
+
+  # 有効化リンクの有効期限（24時間）が切れている場合はtrueを返す
+  def activation_expired?
+    activation_sent_at < 24.hours.ago
   end
 
   private
