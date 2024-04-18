@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token, :reset_token
-  before_save { self.email = email.downcase }
+  attr_accessor :remember_token, :activation_token, :reset_token
+  before_save   :downcase_email
+  before_action :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }, uniqueness: true
   has_secure_password
@@ -49,5 +50,18 @@ class User < ApplicationRecord
   # パスワード再設定のメールを送信する
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
+  end
+
+  private
+
+  # メールアドレスを全て小文字にする
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  # 有効化トークンとダイジェストを作成及び代入する
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end
