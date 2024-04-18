@@ -5,15 +5,21 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user&.authenticate(params[:session][:password])
-      reset_session
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      log_in user
-      flash[:success] = "ログインに成功しました"
-      redirect_to user
+    if user && user.authenticate(params[:session][:password])
+      if user.activated?
+        log_in(user)
+        params[:session][:remember_me] == "1" ? remember(user) : forget(user)
+        flash[:success] = "ログインに成功しました"
+        redirect_to user
+      else
+        message = "アカウントが有効化されていません。"
+        message += "届いたメールをご確認の上、アカウントを有効化してください。"
+        flash[:danger] = message
+        redirect_to root_url
+      end
     else
-      flash.now[:danger] = "ログインに失敗しました"
-      render 'new', status: :unprocessable_entity
+      flash.now[:error] = "ログインに失敗しました"
+      render :new, status: :unprocessable_entity
     end
   end
 

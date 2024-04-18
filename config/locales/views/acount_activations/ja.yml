@@ -1,0 +1,5 @@
+ja:
+  acount_activations:
+    edit:
+      success: アカウントが有効化されました
+      failure: この有効化リンクは無効です
