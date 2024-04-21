@@ -4,7 +4,7 @@ ja:
       title: 新規登録
       button_text: 登録
     create:
-      success: Yondaアプリへようこそ!
+      success: アカウント有効化メールを送信しました。メールが届きましたら、記載されているリンクをクリックしてアカウントを有効化してください。
     show:
       title: マイページ
       name: おなまえ

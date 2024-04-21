@@ -84,4 +84,3 @@ production:
   database: yonda_production
   username: yonda
   password: <%= ENV["YONDA_DATABASE_PASSWORD"] %>
-  
