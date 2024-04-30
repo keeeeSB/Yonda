@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_18_200947) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_22_004653) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -87,7 +87,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_200947) do
     t.date "read_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "family_id"
+    t.integer "family_id", null: false
     t.index ["book_id"], name: "index_read_records_on_book_id"
     t.index ["family_id"], name: "index_read_records_on_family_id"
     t.index ["user_id"], name: "index_read_records_on_user_id"
@@ -108,13 +108,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_18_200947) do
     t.string "remember_digest"
     t.integer "family_id"
     t.boolean "admin", default: false
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
     t.datetime "activation_sent_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
+    t.index ["email"], name: "index_users_on_email"
     t.index ["family_id"], name: "index_users_on_family_id"
   end
 
