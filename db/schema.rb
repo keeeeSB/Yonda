@@ -114,7 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_22_004653) do
     t.datetime "activation_sent_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    #t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email"
     t.index ["family_id"], name: "index_users_on_family_id"
   end
 
