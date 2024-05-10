@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get    "/home",       to: "read_records#index"
   get    "/about",      to: "static_pages#about"
   get    "/privacy",    to: "static_pages#privacy"
+  get    "/terms",      to: "static_pages#terms"
   get    "signup",      to: "users#new"
   get    "/login",      to: "sessions#new"
   post   "/login",      to: "sessions#create"
