@@ -4,8 +4,8 @@ class GuestSessionsController < ApplicationController
     user = User.find_or_create_by(email: "guest@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲストユーザー"
-    end
-    session[:user_id] = user.id
-    flasf[:success] = t(".success")
+    end.id
+    flash[:success] = t(".success")
+    redirect_to home_path
   end
 end
