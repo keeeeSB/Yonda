@@ -8,8 +8,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   belongs_to :family
-  has_many :read_records
+  has_many :read_records, dependent: :destroy
   has_many :books
+  has_many :favorites, dependent: :destroy
 
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)

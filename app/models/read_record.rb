@@ -6,6 +6,7 @@ class ReadRecord < ApplicationRecord
   has_many :child_read_records, dependent: :destroy
   has_many :read_record_tags, dependent: :destroy
   has_many :tags, through: :read_record_tags
+  has_many :favorites, dependent: :destroy
 
   validates :read_date, presence: true
 
