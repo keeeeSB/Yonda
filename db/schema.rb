@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_14_193944) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_20_234505) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -123,6 +123,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_14_193944) do
     t.datetime "activation_sent_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "invite_digest"
+    t.datetime "invite_sent_at"
     t.index ["email"], name: "index_users_on_email"
     t.index ["family_id"], name: "index_users_on_family_id"
   end
