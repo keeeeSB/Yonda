@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :books do
     collection { get :search }
   end
-  resources :read_records
+  resources :read_records do
+    resources :favorites, only: %i[create destroy]
+  end
   resources :contacts, only: %i[new create]
   resources :account_activations, only: %i[edit]
   resources :password_resets, only: %i[new create edit update]

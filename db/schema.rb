@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_22_004653) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_14_193944) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -71,6 +71,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_22_004653) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "read_record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["read_record_id"], name: "index_favorites_on_read_record_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "read_record_tags", force: :cascade do |t|
     t.integer "read_record_id", null: false
     t.integer "tag_id", null: false
@@ -124,6 +133,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_22_004653) do
   add_foreign_key "child_read_records", "children"
   add_foreign_key "child_read_records", "read_records"
   add_foreign_key "children", "families"
+  add_foreign_key "favorites", "read_records"
+  add_foreign_key "favorites", "users"
   add_foreign_key "read_record_tags", "read_records"
   add_foreign_key "read_record_tags", "tags"
   add_foreign_key "read_records", "books"
