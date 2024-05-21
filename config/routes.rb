@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   resources :contacts, only: %i[new create]
   resources :account_activations, only: %i[edit]
   resources :password_resets, only: %i[new create edit update]
+  resources :invitations, only: %i[new create]
 end
