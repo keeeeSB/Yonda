@@ -13,8 +13,9 @@
     <h4 class="text-secondary"><%= t(".family") %></h4>
     <div class="text-center fs-3 border-bottom pb-3 mb-5">
       <% @family.users.each do |user| %>
-        <p><%= user.name %></p>
+        <p class="mb-5"><%= user.name %></p>
       <% end %>
+      <%= link_to t(".user_button_text"), new_invitation_path, class: "btn btn-outline-info" %>
     </div>
 
     <h4 class="text-secondary"><%= t(".child") %></h4>
@@ -26,7 +27,7 @@
           <li class="px-3"><%= child.birthday.strftime('%Y年%-m月%-d日生まれ') %></li>
         </ul>
       <% end %>
-      <%= link_to t(".button_text"), new_child_path(family_id: @family.id), class: "btn btn-outline-warning" %>
+      <%= link_to t(".child_button_text"), new_child_path(family_id: @family.id), class: "btn btn-outline-warning" %>
     </div>
 
     <h4 class="text-secondary"><%= t(".read_record") %></h4>
