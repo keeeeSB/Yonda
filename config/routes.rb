@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'family_invitations/new'
   root   "static_pages#top"
   get    "/home",       to: "read_records#index"
   get    "/about",      to: "static_pages#about"
@@ -22,4 +23,5 @@ Rails.application.routes.draw do
   resources :account_activations, only: %i[edit]
   resources :password_resets, only: %i[new create edit update]
   resources :invitations, only: %i[new create]
+  resources :family_invitations, only: %i[new create]
 end
