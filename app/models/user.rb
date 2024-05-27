@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
+  attr_accessor :invite_token
   before_save   :downcase_email
   before_create :create_activation_digest
-  before_create :activate_if_invited
+  before_create :activate_user_if_invited
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }, uniqueness: true
   has_secure_password
@@ -90,14 +91,10 @@ class User < ApplicationRecord
     self.activation_digest = User.digest(activation_token)
   end
 
-  def activate_if_invited
-    if invited?
+  def activate_user_if_invited
+    if invite_token.present?
       self.activated = true
-      self.activated_at = Time.zone.now
+      self.activated_at = Time.current
     end
-  end
-
-  def invited?
-    invite_digest.present?
   end
 end
