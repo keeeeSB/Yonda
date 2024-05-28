@@ -30,9 +30,9 @@
       <%= link_to t(".child_button_text"), new_child_path(family_id: @family.id), class: "btn btn-outline-warning" %>
     </div>
 
-    <h4 class="text-secondary"><%= t(".read_record") %></h4>
+    <h4 class="text-secondary mb-4"><%= t(".read_record") %></h4>
     <% @family.read_records.order(created_at: :desc).each do |read_record| %>
-      <div class="card mb-3 mx-auto" style="max-width: 540px;">
+      <div class="card mb-5 mx-auto" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
             <%= image_tag read_record.book.image_link, class: "img-fluid rounded-start" %>

@@ -10,6 +10,10 @@ ja:
       name: おなまえ
       email: メールアドレス
       family: 家族グループ
+      read_record: 読み聞かせ記録一覧
+      reader: よんだ人
+      read_date: よんだ日付
+      comment: コメント
     edit:
       title: ユーザー編集
       button_text: 更新
