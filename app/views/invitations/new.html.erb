@@ -6,7 +6,7 @@
     <%= form_with(url: invitations_path, lacal: true) do |f| %>
       <div class="mb-3">
         <%= f.label :email, class: "form-label" %>
-        <%= f.email_field :email, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control fs-4" %>
       </div>
       <div class="mb-3 d-grid gap-2">
         <%= f.submit t(".button_text"), class: "btn btn-warning btn-lg" %>

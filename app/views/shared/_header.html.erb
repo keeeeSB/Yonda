@@ -15,7 +15,7 @@
 
       <%= form_with url: search_books_path, local: true, method: :get, class: "row align-items-center px-2" do |f| %>
         <div class="d-flex align-items-center">
-          <%= f.search_field :search, class: "form-control form-control-dark me-2", value: params[:search], placeholder: t(".placeholder") %>
+          <%= f.search_field :search, class: "form-control form-control-dark me-2 fs-4", value: params[:search], placeholder: t(".placeholder") %>
           <%= f.submit t(".button_text"), class: "btn btn-light btn-lg" %>
         </div>
       <% end %>
