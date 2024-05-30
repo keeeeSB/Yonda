@@ -1,4 +1,4 @@
-<header class="p-3 mb-2 bg-success text-white">
+<header class="mb-2 bg-success text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <%= link_to root_path, class: "d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" do %>
@@ -8,55 +8,59 @@
       <% end %>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to t(".title"), "/", class: "nav-link px-2 text-white fs-4" %></li>
-        <li><%= link_to t(".home"), home_path, class: "nav-link px-2 text-white fs-4" %></li>
-        <li><%= link_to t(".about"), about_path, class: "nav-link px-2 text-white fs-4" %></li>
+        <li><%= link_to t(".title"), "/", class: "nav-link px-2 text-white fs-3" %></li>
+        <li><%= link_to t(".home"), home_path, class: "nav-link px-2 text-white fs-3" %></li>
+        <li><%= link_to t(".about"), about_path, class: "nav-link px-2 text-white fs-3" %></li>
       </ul>
 
       <%= form_with url: search_books_path, local: true, method: :get, class: "row align-items-center px-2" do |f| %>
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center p-3">
           <%= f.search_field :search, class: "form-control form-control-dark me-2 fs-4", value: params[:search], placeholder: t(".placeholder") %>
           <%= f.submit t(".button_text"), class: "btn btn-light btn-lg" %>
         </div>
       <% end %>
 
       <div class="text-end">
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 align-items-center justify-content-center mb-md-0">
         <% if logged_in? %>
-          <li>
+          <li class="text-center p-2">
             <%= link_to books_path, class: "nav-link px-2 text-white" do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-bookmark-star" viewBox="0 0 16 16">
                 <path d="M7.84 4.1a.178.178 0 0 1 .32 0l.634 1.285a.178.178 0 0 0 .134.098l1.42.206c.145.021.204.2.098.303L9.42 6.993a.178.178 0 0 0-.051.158l.242 1.414a.178.178 0 0 1-.258.187l-1.27-.668a.178.178 0 0 0-.165 0l-1.27.668a.178.178 0 0 1-.257-.187l.242-1.414a.178.178 0 0 0-.05-.158l-1.03-1.001a.178.178 0 0 1 .098-.303l1.42-.206a.178.178 0 0 0 .134-.098L7.84 4.1z"/>
                 <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
               </svg>
             <% end %>
+            <p class="fw-semibold">お気に入り</p>
           </li>
-          <li>
+          <li class="text-center p-2">
             <%= link_to family_path(current_user), class: "nav-link px-2 text-white" do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-heart" viewBox="0 0 16 16">
                 <path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982Z"/>
                 <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
               </svg>
             <% end %>
+            <p class="fw-semibold">家族</p>
           </li>
-          <li>
+          <li class="text-center p-2">
             <%= link_to edit_user_path(current_user), class: "nav-link px-2 text-white" do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
                 <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
               </svg>
             <% end %>
+            <p class="fw-semibold">設定</p>
           </li>
-          <li>
+          <li class="text-center p-2">
             <%= link_to new_contact_path, class: "nav-link px-2 text-white" do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
                 <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
               </svg>
             <% end %>
+            <p class="fw-semibold">お問い合わせ</p>
           </li>
           <li class='nav-item dropdown dropdown-slide'>
             <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
-              <%= image_tag 'icon.png', class: 'rounded-circle mr15', width: '25', height: '25' %>
+              <%= image_tag 'icon.png', class: 'rounded-circle mr15', width: '35', height: '35' %>
           <% end %>
             <div class='dropdown-menu dropdown-menu-end'>
               <div class='dropdown-item'><%= current_user.name %></div>
