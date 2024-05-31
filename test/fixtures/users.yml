@@ -2,3 +2,18 @@ tarou:
   name: Tarou Example
   email: tarou@example.com
   password_digest: <%= User.digest('password') %>
+  remember_digest: nil
+  family: one
+  admin: true
+  activation_digest: <%= User.digest('activation') %>
+  activated: true
+
+two:
+  name: Two Example
+  email: two@example.com
+  password_digest: <%= User.digest('password') %>
+  remember_digest: nil
+  family: two
+  admin: true
+  activation_digest: <%= User.digest('activation') %>
+  activated: true
