@@ -4,6 +4,7 @@ tarou:
   password_digest: <%= User.digest('password') %>
   remember_digest: nil
   family: one
+  family_id: 1
   admin: true
   activation_digest: <%= User.digest('activation') %>
   activated: true

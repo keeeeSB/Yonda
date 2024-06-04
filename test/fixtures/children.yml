@@ -3,11 +3,11 @@
 one:
   name: MyString
   gender: MyString
-  birthday: MyString
+  birthday: 2022-05-19
   family: one
 
 two:
   name: MyString
   gender: MyString
-  birthday: MyString
+  birthday: 2022-05-19
   family: two
