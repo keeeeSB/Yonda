@@ -7,8 +7,9 @@ class FamiliesController < ApplicationController
   def create
     @family = Family.new(family_params)
     if @family.save
+      current_user.update(family_id: @family.id)
       flash[:success] = t(".success")
-      redirect_to signup_path
+      redirect_to current_user
     else
       render :new, status: :unprocessable_entity
     end

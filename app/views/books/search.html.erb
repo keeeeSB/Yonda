@@ -5,8 +5,8 @@
       <%= form_with url: search_books_path, local: true, method: :get do |f| %>
         <div class="mb-3">
           <h6 class="fw-bolder"><%= t(".search_book") %></h6>
-          <%= f.search_field :search, class: "form-control", placeholder: t(".search"), value: params[:search] %>
-          <p class=""><small class="text-secondary"><%= t(".text") %></small></p>
+          <%= f.search_field :search, class: "form-control fs-4", placeholder: t(".search"), value: params[:search] %>
+          <p class="text-secondary"><%= t(".text") %></p>
         </div>
         <%= f.submit t(".button_text"), class: "btn btn-outline-success" %>
       <% end %>
@@ -38,7 +38,7 @@
               </div>
               <div class="col-7">
                 <div class="card-body">
-                  <h4 class="card-title"><%= google_book['volumeInfo']['title'].truncate(17) %></h5>
+                  <h4 class="card-title"><%= google_book['volumeInfo']['title'].truncate(17) %></h4>
                   <p class="card-text mb-2 fs-5 text-body-tertiary"><%= google_book['volumeInfo']['authors']&.join(', ')&.truncate(20) %></p>
                   <p class="card-text text-body-tertiary"><%= google_book['volumeInfo']['publishedDate'] %></p>
                   <p class="card-text fs-5"><%= truncate(google_book['volumeInfo']['description'], length: 120) %></p>

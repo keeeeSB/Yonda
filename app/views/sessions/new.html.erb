@@ -6,11 +6,11 @@
     <%= form_with(url: login_path, scope: :session) do |f| %>
       <div class="mb-3">
         <%= f.label :email, class: "form-label" %>
-        <%= f.email_field :email, class: "form-control" %>
+        <%= f.email_field :email, class: "form-control fs-4" %>
       </div>
       <div class="mb-3">
         <%= f.label :password, class: "form-label" %>
-        <%= f.password_field :password, class: "form-control" %>
+        <%= f.password_field :password, class: "form-control fs-4" %>
       </div>
       <div class="form-check">
         <%= f.label :remember_me, class: "form-check-label" do %>

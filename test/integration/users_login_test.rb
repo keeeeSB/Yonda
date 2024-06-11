@@ -6,7 +6,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     @user = users(:tarou)
   end
 
-  test "login with invalid information" do
+  test "無効な情報でログインする" do
     get login_path
     assert_template 'sessions/new'
     post login_path, params: { session: { email: "", password: "" } }
@@ -17,7 +17,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "login with valid information followed by logout" do
+  test "有効な情報でログインし、その後ログアウトする" do
     post login_path, params: { session: { email: @user.email,
                                          password: 'password' } }
     assert_redirected_to @user
@@ -38,17 +38,17 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", user_path(@user), count: 0
   end
 
-  test "should still work after logout in second window" do
+  test "2つ目のウィンドウでログアウト後も動作する" do
     delete logout_path
     assert_redirected_to root_url
   end
 
-  test "login with remembering" do
+  test "ログイン時に記憶する" do
     log_in_as(@user, remember_me: '1')
     assert_not cookies[:remember_token].blank?
   end
 
-  test "login without remembering" do
+  test "ログイン時に記憶しない" do
     # Cookieを保存してログイン
     log_in_as(@user, remember_me: '1')
     # Cookieが削除されていることを検証してからログイン

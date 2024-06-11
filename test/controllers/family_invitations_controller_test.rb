@@ -1,8 +1,14 @@
 require "test_helper"
 
 class FamilyInvitationsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get family_invitations_new_url
+  def setup
+    @user = users(:tarou)
+    @family = @user.family
+    log_in_as(@user)
+  end
+
+  test "家族登録ページの取得" do
+    get new_family_invitation_path(@family)
     assert_response :success
   end
 end

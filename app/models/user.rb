@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  belongs_to :family
+  belongs_to :family, optional: true
   has_many :read_records, dependent: :destroy
   has_many :books
   has_many :favorites, dependent: :destroy

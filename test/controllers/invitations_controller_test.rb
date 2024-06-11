@@ -1,8 +1,8 @@
 require "test_helper"
 
 class InvitationsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get invitations_new_url
+  test "家族招待ページの取得" do
+    get new_invitation_path
     assert_response :success
   end
 end

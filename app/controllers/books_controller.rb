@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :require_login, only: %i[create]
 
   def index
     @books = current_user.books.all.includes([:authors, :user]).order(created_at: :desc).page(params[:page])
