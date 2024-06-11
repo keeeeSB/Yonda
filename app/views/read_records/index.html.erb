@@ -46,6 +46,9 @@
             <% read_record.tags.each do |tag| %>
               <p class="fs-6 badge bg-success text-white"><%= tag.name %></p>
             <% end %>
+            <% if read_record.favorites.present? %>
+              <h5 class="card-text">いいね <span style="color: red;"><%= read_record.favorites.count %></span> 件</h5>
+            <% end %>
           </div>
         </div>
         <div class="col-md-1 mt-3">
