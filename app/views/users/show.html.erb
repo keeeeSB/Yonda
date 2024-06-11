@@ -43,6 +43,9 @@
                 <% read_record.tags.each do |tag| %>
                   <p class="fs-6 badge bg-success text-white"><%= tag.name %></p>
                 <% end %>
+                <% if read_record.favorites.present? %>
+                  <h5 class="card-text">いいね <span style="color: red;"><%= read_record.favorites.count %></span> 件</h5>
+                <% end %>
                 <div>
                   <%= link_to edit_read_record_path(read_record.id), data: { turbo_stream: true }, class: "text-warning-emphasis" do %>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
