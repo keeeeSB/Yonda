@@ -16,7 +16,7 @@ class FamiliesController < ApplicationController
   end
 
   def show
-    @family = Family.find(current_user.family_id)
+    @family = current_user.family
   end
 
   def destroy
