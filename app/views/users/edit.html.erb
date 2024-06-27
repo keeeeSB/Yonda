@@ -2,13 +2,19 @@
 <% provide(:button_text, t(".button_text")) %>
 <h1 class="text-center p-5"><%= t(".title") %></h1>
 
-<div class="row">
-  <div class="col-md-10 col-lg-8 mx-auto w-50">
-    <%= render "form" %>
-    <% if @user == current_user %>
-      <div class="mb-3 d-grid gap-2">
-        <%= link_to "ユーザー削除", user_path(current_user.id), data: { "turbo-method": :delete, turbo_confirm: "本当に削除しますか?" }, class: "btn btn-outline-danger btn-lg" %>
-      </div>
-    <% end %>
+<% if current_user.name != "ゲスト" %>
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto w-50">
+      <%= render "form" %>
+      <% if @user == current_user %>
+        <div class="mb-3 d-grid gap-2">
+          <%= link_to "ユーザー削除", user_path(current_user.id), data: { "turbo-method": :delete, turbo_confirm: "本当に削除しますか?" }, class: "btn btn-outline-danger btn-lg" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="text-center mb-3">
+    <%= link_to "ユーザー登録をする", login_path, class: "btn btn-outline-info btn-lg" %>
+  </div>
+<% end %>
