@@ -12,15 +12,17 @@
       <div class="text-center fs-3 border-bottom pb-3 mb-5">
         <%= @user.email %>
       </div>
-      <% if !current_user.family_id.nil? %>
-        <h4 class="text-secondary"><%= t(".family") %></h4>
-        <div class="text-center fs-3 border-bottom pb-3 mb-5">
-          <%= @user.family.name %>
-        </div>
-      <% else %>
-        <div class="text-center mb-3">
-          <%= link_to "家族グループを設定", new_family_path, class: "btn btn-outline-warning btn-lg" %>
-        </div>
+      <% if current_user.name != "ゲスト" %>
+        <% if !current_user.family_id.nil? %>
+          <h4 class="text-secondary"><%= t(".family") %></h4>
+          <div class="text-center fs-3 border-bottom pb-3 mb-5">
+            <%= @user.family.name %>
+          </div>
+        <% else %>
+          <div class="text-center mb-3">
+            <%= link_to "家族グループを設定", new_family_path, class: "btn btn-outline-warning btn-lg" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
 
