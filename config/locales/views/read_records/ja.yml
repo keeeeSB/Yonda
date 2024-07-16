@@ -4,6 +4,7 @@ ja:
       title: ホーム
       ranking: 月間ランキング
       read_records: みんなの記録
+      no_read_records: 読み聞かせ記録がありません
       reader: よんだ人
       read_date: よんだ日付
       comment: コメント

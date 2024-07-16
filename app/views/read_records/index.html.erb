@@ -27,8 +27,8 @@
   </div>
 <% end %>
 
-<% if @read_records.present? %>
-  <div class="container">
+<div class="container">
+  <% if @read_records.present? %>
     <h1 class="text-center p-5"><%= t(".read_records") %></h1>
     <% @read_records.each do |read_record| %>
       <div class="card mb-5 mx-auto" style="max-width: 540px;">
@@ -77,5 +77,7 @@
     <div class="d-flex justify-content-center">
       <%= paginate @read_records %>
     </div>
-  </div>
-<% end %>
+  <% else %>
+    <h2 class="text-center p-5"><%= t(".no_read_records") %></h2>
+  <% end %>
+</div>
